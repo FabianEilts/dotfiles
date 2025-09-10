@@ -1,0 +1,30 @@
+{
+  "workbench.colorTheme": "Atom One Dark",
+  "workbench.iconTheme": "a-file-icon-vscode",
+  "explorer.confirmDelete": false,
+  "editor.fontSize": 15,
+  "react-native-tools.showUserTips": false,
+  "editor.minimap.enabled": false,
+  "git.autofetch": true,
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.organizeImports": "explicit"
+  },
+  "telemetry.telemetryLevel": "off",
+  "database-client.telemetry.usesOnlineServices": false,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "python.createEnvironment.trigger": "off",
+  "git.openRepositoryInParentFolders": "always",
+  "github.gitProtocol": "ssh",
+  "github.gitAuthentication": false,
+  "explorer.confirmDragAndDrop": false,
+  "indentRainbow.indicatorStyle": "light",
+  "gitlens.ai.model": "vscode",
+  "gitlens.ai.vscode.model": "copilot:gemini-2.0-flash",
+  "workbench.startupEditor": "none",
+  "containers.containerClient": "com.microsoft.visualstudio.containers.docker",
+  "database-client.autoSync": true
+}
