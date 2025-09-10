@@ -1,0 +1,49 @@
+[user]
+	email = fabianeilts17@gmail.com
+	name = Fabian Eilts
+
+[alias]
+	s = status
+	a = add --all
+	ca = commit --amend
+	undocommit = reset --hard HEAD^1
+	b = branch
+	c = commit -am
+	cl = clone
+	# Show the diff between the latest commit and the current state
+	d = !"git diff-index --quiet HEAD -- || clear; git --no-pager diff --patch-with-stat"
+	f = fetch
+	pl = pull
+	p = push
+	pf = push -f
+	co = checkout
+	sw = switch
+	dl = branch --delete
+	df = diff --color --color-words --abbrev
+	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --
+
+[color]
+	ui = always
+[color "diff"]
+	meta = yellow bold
+	commit = green bold
+	frag = magenta bold
+	old = red bold
+	new = green bold
+	whitespace = red reverse
+[color "diff-highlight"]
+	oldNormal = red bold
+	oldHighlight = "red bold 52"
+	newNormal = "green bold"
+	newHighlight = "green bold 22"
+[color "branch"]
+	current = yellow
+	local = yellow
+	remote = green
+[color "status"]
+	added = yellow
+	changed = green
+	untracked = red
+
+[init]
+	defaultBranch = main

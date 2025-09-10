@@ -123,10 +123,8 @@ fi
 
 #Own aliases
 alias ..='cd ../'
-alias reloadBash='. ~/.bashrc'
+alias reloadBash='source ~/.bashrc'
 alias c='clear'
-alias gs='git status'
-alias gp='git pull'
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
