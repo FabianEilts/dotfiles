@@ -65,7 +65,7 @@ fi
 parse_git_branch() {
      git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
 }
-export PS1="\[\033[32m\]\u@\h \[\033[1;96m\]\w\[\033[1;33m\]\$(parse_git_branch)\[\033[00m\] \n$ "
+export PS1="\[\033[32m\]\u@\h \[\033[1;96m\]\w\[\033[1;00m\]$(parse_git_branch)\[\033[00m\] \n$ "
 mkcdir() { mkdir "$@" 2> >(sed s/mkdir/mcd/ 1>&2) && cd "$_"; }
 
 # If this is an xterm set the title to user@host:dir
