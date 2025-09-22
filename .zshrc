@@ -112,6 +112,10 @@ source $ZSH/oh-my-zsh.sh
 alias c="clear"
 alias ..="cd .."
 alias ll="ls -la"
+alias reloadZsh="source ~/.zshrc"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+export NVM_DIR="${HOME}/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
