@@ -6,7 +6,7 @@
   "react-native-tools.showUserTips": false,
   "editor.minimap.enabled": false,
   "git.autofetch": true,
-  "editor.formatOnSave": true,
+  "editor.formatOnSave": false,
   "editor.codeActionsOnSave": {
     "source.organizeImports": "explicit"
   },
@@ -26,5 +26,6 @@
   "gitlens.ai.vscode.model": "copilot:gemini-2.0-flash",
   "workbench.startupEditor": "none",
   "containers.containerClient": "com.microsoft.visualstudio.containers.docker",
-  "database-client.autoSync": true
+  "database-client.autoSync": true,
+  "git.mergeEditor": true
 }
