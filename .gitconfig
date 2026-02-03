@@ -8,7 +8,7 @@
 	ca = commit --amend
 	undocommit = reset --hard HEAD^1
 	b = branch
-	c = commit -am
+	c = commit -m
 	cl = clone
 	# Show the diff between the latest commit and the current state
 	d = !"git diff-index --quiet HEAD -- || clear; git --no-pager diff --patch-with-stat"
@@ -21,6 +21,7 @@
 	dl = branch --delete
 	df = diff --color --color-words --abbrev
 	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --
+	swc = switch -c
 
 [color]
 	ui = always
