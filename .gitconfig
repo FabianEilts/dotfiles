@@ -22,6 +22,7 @@
 	df = diff --color --color-words --abbrev
 	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --
 	swc = switch -c
+	ps = !git push --set-upstream origin $(git symbolic-ref --short HEAD)
 
 [color]
 	ui = always
