@@ -195,7 +195,7 @@ bindsym $mod+r mode "resize"
 #}
 
 #Startup
-exec_always --no-startup-id feh --bg-scale /home/fabian/Pictures/markovgeist.jpg
+exec_always --no-startup-id feh --bg-scale /home/fabian/Pictures/ubuntu-black-4k.png
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 exec_always --no-startup-id picom -b
 
