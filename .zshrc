@@ -112,9 +112,27 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias c="clear"
-alias ..="cd .."
 alias ll="ls -la"
 alias reloadZsh="source ~/.zshrc"
+
+# Function to navigate up multiple directories
+..() {
+    local depth=${1:-1}
+    local path=""
+
+    # Ensure the input is a valid positive integer
+    if [[ ! "$depth" =~ ^[0-9]+$ ]]; then
+        echo "Error: Please provide a valid number."
+        return 1
+    fi
+
+    # Build the cd path (e.g., ../../)
+    for ((i=0; i<depth; i++)); do
+        path="../$path"
+    done
+
+    cd "$path"
+}
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
