@@ -74,11 +74,11 @@
     },
   ],
   "latex-workshop.latex.autoBuild.run": "never",
-  "editor.rulers": [120],
   "[latex]": {
     "editor.defaultFormatter": "James-Yu.latex-workshop",
   },
-  "editor.formatOnSaveMode": "modifications",
+  "editor.rulers": [120],
+  "editor.formatOnSaveMode": "file",
   "workbench.activityBar.location": "top",
   "window.menuBarVisibility": "compact",
   "window.commandCenter": false,

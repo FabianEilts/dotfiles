@@ -145,4 +145,4 @@ export PATH="${HOME}/workspace/fabian-stuff:$PATH"
 source ~/.config/catppuccin-zsh/catppuccin_frappe-zsh-syntax-highlighting.zsh
 
 # opencode
-export PATH=/home/fabian/.opencode/bin:$PATH
+export PATH="${HOME}/.opencode/bin:$PATH"

@@ -54,10 +54,14 @@
   },
   {
     "key": "ctrl+alt+n",
-    "command": "explorer.newFile"
+    "command": "explorer.newFile",
   },
   {
     "key": "ctrl+shift+alt+n",
-    "command": "explorer.newFolder"
+    "command": "explorer.newFolder",
+  },
+  {
+    "key": "ctrl+[Minus]",
+    "command": "workbench.action.splitEditorRight",
   },
 ]
