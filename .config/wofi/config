@@ -1,0 +1,14 @@
+style=/home/fabian/.config/wofi/style.css
+
+show=drun
+width=500
+height=400
+always_parse_args=true
+show_all=false
+print_command=true
+insensitive=true
+prompt=Suchen...
+location=center
+no_actions=true
+allow_images=true
+image_size=24

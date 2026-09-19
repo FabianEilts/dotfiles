@@ -1,0 +1,88 @@
+/* Catppuccin Frappé - Wofi */
+
+* {
+  font-family: "JetBrainsMono Nerd Font", monospace;
+  font-size: 18px;
+}
+#scroll {
+  background-color: #303446;
+  margin: 0 8px 8px 8px;
+}
+#outer-box {
+  background-color: #303446;
+  padding: 10px;
+  border: 2px solid #8caaee;
+}
+#main {
+  background-color: #303446;
+}
+scrollbar,
+scrollbar trough,
+undershoot.top,
+undershoot.bottom {
+  min-width: 5px;
+  min-height: 5px;
+  background: none;
+}
+scrollbar slider{
+  background-color: #8caaee;
+}
+#outer-box {
+  padding: 4px;
+  background-color: #303446;
+  padding: 10px;
+  border: 2px solid #8caaee;
+  padding: 10px;
+}
+
+#input image {
+  color: #8caaee;
+  -gtk-icon-effect: none;
+}
+#input {
+  background-color: #414559;
+  color: #c6d0f5;/* Text */
+  caret-color: #8caaee;
+  border: 1px solid #51576d;
+  outline: 1px solid #626880;
+  padding: 8px 12px;
+  margin: 10px;
+  border-radius: 35px;
+}
+#input:focus {
+  border-color: #8caaee;
+}
+#input placeholder {
+  color: #303446;
+}
+#entry {
+  background-color: #303446;
+  color: #c6d0f5;
+}
+#entry #entry:selected {
+  background-color: #414559;
+  color: #8caaee;
+}
+#entry:selected {
+  background-color: #414559;
+  color: #8caaee;
+}
+#entry:hover {
+  background-color: #51576d;
+}
+#text {
+  color: #c6d0f5;
+}
+#text:selected {
+  color: #8caaee;
+}
+window {
+  background-color: #303446;
+  border: 2px solid #8caaee;
+}
+#inner-box {
+  background-color: transparent;
+}
+#img {
+  margin-right: 8px;
+}

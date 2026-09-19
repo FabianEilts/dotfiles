@@ -1,0 +1,93 @@
+/* Importiert die bereits vorhandene Frappé-Farbpalette */
+@import "frappe.css";
+
+* {
+    border: none;
+    border-radius: 0;
+    font-family: "JetBrainsMono Nerd Font", Roboto, sans-serif;
+    font-size: 13px;
+    min-height: 0;
+}
+
+/* Transparenter Hintergrund für die gesamte Leiste */
+window#waybar {
+    background-color: transparent;
+    color: @text;
+}
+
+/* Gemeinsames Styling für alle "Pill"-Module */
+#custom-weather,
+#cpu,
+#memory,
+#disk,
+#network,
+#pulseaudio,
+#battery,
+#clock,
+#workspaces {
+    background-color: alpha(@surface0, 0.85);
+    color: @text;
+    padding: 4px 12px;
+    margin: 4px 3px;
+    border-radius: 16px;
+    border: 1px solid alpha(@surface1, 0.5);
+}
+
+/* Akzentfarben für die einzelnen Module */
+#custom-weather {
+    color: @sky;
+}
+
+#cpu {
+    color: @sapphire;
+}
+
+#memory {
+    color: @lavender;
+}
+
+#disk {
+    color: @blue;
+}
+
+#network {
+    color: @teal;
+}
+
+#pulseaudio {
+    color: @green;
+}
+
+#battery {
+    color: @peach;
+}
+
+#battery.critical:not(.charging) {
+    background-color: @red;
+    color: @crust;
+}
+
+#clock {
+    color: @mauve;
+}
+
+/* Workspaces (Mittleres Pill-Modul) */
+#workspaces {
+    padding: 2px 8px;
+}
+
+#workspaces button {
+    padding: 0 4px;
+    background-color: transparent;
+    color: @overlay0;
+    font-size: 10px;
+}
+
+#workspaces button.focused {
+    color: @mauve;
+    font-size: 12px;
+}
+
+#workspaces button.urgent {
+    color: @red;
+}

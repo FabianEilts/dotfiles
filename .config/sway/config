@@ -1,7 +1,20 @@
-# Sway config file (angepasst aus i3)
+# Sway config file
+
+# Environment für Systemd/D-Bus bereitstellen & Session-Target starten
+exec systemctl --user import-environment XDG_CURRENT_DESKTOP XDG_SESSION_TYPE WAYLAND_DISPLAY SWAYSOCK
+exec dbus-update-activation-environment --systemd XDG_CURRENT_DESKTOP=sway XDG_SESSION_TYPE=wayland WAYLAND_DISPLAY SWAYSOCK
+exec systemctl --user start graphical-session.target
+exec systemctl --user start sway-session.target
 
 set $mod Mod4
 set $term kitty
+
+# --- Window Borders & Gaps ---
+default_border pixel 2
+default_floating_border pixel 2
+gaps inner 15
+gaps outer 10
+smart_gaps off
 
 # Font for window titles
 font pango:System San Francisco Display 10
@@ -9,24 +22,46 @@ font pango:System San Francisco Display 10
 # Autostart XDG apps
 exec dex --autostart --environment sway
 
-# Screen locking & idle management (Wayland-native)
+# 1. Swaylock Befehl mit Bild & Catppuccin-Frappé Farben definieren
+set $lock swaylock \
+  -f \
+  -i /home/fabian/Pictures/wallpapers/tropic_island_evening.jpg \
+  --scaling fill \
+  --ring-color 8caaee \
+  --key-hl-color ca9ee6 \
+  --line-color 303446 \
+  --inside-color 303446 \
+  --text-color c6d0f5 \
+  --separator-color 00000000
+
+# 2. Idle Management & automatisches Sperren mit swayidle
 exec swayidle -w \
-          timeout 300 'swaylock -f -c 000000' \
-          timeout 600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
-          before-sleep 'swaylock -f -c 000000'
+  timeout 300 '$lock' \
+  timeout 600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
+  before-sleep '$lock'
+
+# 3. Manuelles Sperren per Tastenkombination (Super + L)
+bindsym $mod+Escape exec $lock
 
 # NetworkManager Tray-Icon
 exec nm-applet
 
-# Audio-Keybindings
-set $refresh_i3status killall -SIGUSR1 i3status
-bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +10%
-bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -10%
-bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
-bindsym XF86AudioMicMute exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
+# Audio Keybindings
+bindsym XF86AudioRaiseVolume exec wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SINK@ 5%+
+bindsym XF86AudioLowerVolume exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-
+bindsym XF86AudioMute exec wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
+bindsym XF86AudioMicMute exec wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle
+
+# Media Player Keybindings (playerctl)
 bindsym XF86AudioPlay exec playerctl play-pause
+bindsym XF86AudioPause exec playerctl pause
+bindsym XF86AudioStop exec playerctl stop
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
+
+# Brightness for ThinkPad-Display
+bindsym XF86MonBrightnessUp exec brightnessctl -d amdgpu_bl1 set +5%
+bindsym XF86MonBrightnessDown exec brightnessctl -d amdgpu_bl1 set 5%-
 
 # Mouse modifier
 floating_modifier $mod
@@ -38,8 +73,9 @@ bindsym $mod+Return exec $term
 # Kill focused window
 bindsym $mod+Shift+q kill
 
-# App Launcher (rofi-wayland oder dmenu)
+# App Launcher & File Manager
 bindsym $mod+d exec wofi --show drun
+bindsym $mod+Shift+n exec $term -e yazi
 
 # Navigation / Focus
 bindsym $mod+j focus left
@@ -73,7 +109,7 @@ bindsym $mod+f fullscreen toggle
 # Layouts
 bindsym $mod+s layout stacking
 bindsym $mod+w layout tabbed
-bindsym $mod+e exec nautilus
+bindsym $mod+e layout toggle split
 
 # Floating toggle
 bindsym $mod+Shift+space floating toggle
@@ -140,16 +176,13 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-# Waybar & Wallpaper
-bar {
-        swaybar_command waybar
-}
-
-output * bg /home/fabian/Pictures/ubuntu-black-4k.png fill
+# Output & Input
+output * bg /home/fabian/Pictures/wallpapers/tropic_island_evening.jpg fill
 
 input "type:keyboard" {
-	xkb_layout "de"
+    xkb_layout "de"
 }
 
-exec systemctl --user import-environment XDG_CURRENT_DESKTOP XDG_SESSION_TYPE
-exec dbus-update-activation-environment --systemd XDG_CURRENT_DESKTOP=Sway XDG_SESSION_TYPE=wayland
+# Screenshots
+# Select area, save and copy to clipboard
+bindsym Print exec grim -g "$(slurp)" - | tee ~/Pictures/Screenshots/$(date +'%Y-%m-%d_%H-%M-%S').png | wl-copy && notify-send "Screenshot" "Bereich in Zwischenablage kopiert und gespeichert"
