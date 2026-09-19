@@ -7,4 +7,4 @@ Execute the `install.sh` script. Symlinks are created automatically relative to 
 
 ---
 ## License
-Licensed under MIT
+Licensed under [MIT](LICENSE.md)
