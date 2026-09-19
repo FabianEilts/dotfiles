@@ -1,0 +1,7 @@
+*_tmp
+*.log
+
+*.pem
+*.key
+*.env
+.env*
