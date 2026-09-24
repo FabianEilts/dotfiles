@@ -183,6 +183,11 @@ input "type:keyboard" {
     xkb_layout "de"
 }
 
+input "type:touchpad" {
+    tap enabled
+    natural_scroll enabled
+}
+
 # Screenshots
 # Select area, save and copy to clipboard
 bindsym Print exec grim -g "$(slurp)" - | tee ~/Pictures/Screenshots/$(date +'%Y-%m-%d_%H-%M-%S').png | wl-copy && notify-send "Screenshot" "Bereich in Zwischenablage kopiert und gespeichert"
