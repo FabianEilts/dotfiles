@@ -1,0 +1,13 @@
+[Unit]
+Description=Waybar System Bar
+Documentation=https://github.com/Alexays/Waybar/wiki/
+PartOf=default.target
+After=default.target
+
+[Service]
+ExecStart=/usr/bin/waybar
+ExecReload=/usr/bin/killall -SIGUSR2 $MAINPID
+Restart=on-failure
+
+[Install]
+WantedBy=default.target
