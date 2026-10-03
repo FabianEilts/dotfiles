@@ -41,6 +41,7 @@ config_items=(
     ".config/wofi"
     ".config/Code/User/keybindings.json"
     ".config/Code/User/settings.json"
+    ".config/systemd/user/waybar.service"
 )
 
 for item in "${config_items[@]}"; do
