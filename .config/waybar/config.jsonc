@@ -28,7 +28,7 @@
         "interval": 2
     },
     "disk": {
-        "format": "💾 {percentage_used}%",
+        "format": "󰉉 {percentage_used}%",
         "path": "/"
     },
     "network": {
@@ -39,7 +39,7 @@
     },
     "pulseaudio": {
         "format": "{icon} {volume}%",
-        "format-muted": "🔇 Muted",
+        "format-muted": "󰝟 Muted",
         "format-icons": {
             "default": ["", "", ""]
         },
@@ -48,6 +48,7 @@
     "battery": {
         "format": "{icon} {capacity}%",
         "format-icons": ["", "", "", "", ""],
+	"format-charging": "󱐋 {capacity}%",
         "states": {
             "warning": 30,
             "critical": 15
