@@ -189,4 +189,4 @@ input "type:touchpad" {
 
 # Screenshots
 # Select area, save and copy to clipboard
-bindsym Print exec grim -g "$(slurp)" - | tee ~/Pictures/Screenshots/$(date +'%Y-%m-%d_%H-%M-%S').png | wl-copy && notify-send "Screenshot" "Bereich in Zwischenablage kopiert und gespeichert"
+bindsym Print exec grim -g "$(slurp)" - | tee /home/fabian/Pictures/screenshots/$(date +'%Y-%m-%d_%H-%M-%S').png | wl-copy && notify-send "Screenshot" "Bereich in Zwischenablage kopiert und gespeichert"
